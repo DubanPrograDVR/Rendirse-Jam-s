@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+/* ── Tokens ─────────────────────────────────────────────
+   Carbón = el gimnasio de noche. Lona = el piso del ring / el papel del afiche.
+   Rojo = el del escudo (guantes y "MOLINA"): solo para "aquí y ahora". */
+@theme {
+  --color-*: initial;
+  --color-carbon: #0e0e0c;
+  --color-hierro: #1a1a18;
+  --color-lona: #ece7dc;
+  --color-acero: #9a978f; /* texto secundario sobre carbón ≈ 6.5:1 */
+  --color-grafito: #55524c; /* texto secundario sobre lona ≈ 6.8:1 */
+  --color-rojo: #e12a29; /* muestreado del escudo; blanco sobre rojo ≈ 4.6:1 */
+  --color-white: #fff;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  --spacing-gutter: clamp(1rem, 4vw, 3rem);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ── Voces tipográficas (Archivo variable: wdth 62–125) ──
+   Comprimida como una guardia cerrada; expandida como la respiración. */
+@utility t-display {
+  font-stretch: 62%;
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+@utility t-label {
+  font-stretch: 125%;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Titular de sección. */
+@utility t-h2 {
+  font-size: clamp(3rem, 13vw, 8.5rem);
+}
+
+@utility py-section {
+  padding-block: clamp(5rem, 14vw, 11rem);
+}
+
+/* Cinta atlética: blanco roto, extremos rasgados. */
+@utility tape {
+  background: var(--color-lona);
+  color: var(--color-carbon);
+  clip-path: polygon(
+    0.6% 0, 99.3% 0, 100% 20%, 99.4% 41%, 100% 62%, 99.2% 81%, 100% 100%,
+    0.8% 100%, 0 79%, 0.7% 58%, 0 37%, 0.9% 17%
+  );
+}
+
+@layer base {
+  html {
+    background: var(--color-carbon);
+    color: var(--color-lona);
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Grano fotográfico global: imagen estática, sin blend modes (no repinta al hacer scroll). */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: var(--color-rojo);
+    color: var(--color-white);
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+}
+
+/* Páginas sin hero (404): el nombre ya no está en grande, así que la marca del header se muestra siempre. */
+body:not(:has(#inicio)) [data-marca] {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ── Motion ─────────────────────────────────────────────
+   Solo transform / opacity / clip-path. Entradas con ease-out fuerte, salidas más rápidas.
+   Con prefers-reduced-motion: nada se mueve y todo está visible desde el inicio. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Entrada del hero (una vez por visita, solo CSS). */
+  .in-photo {
+    animation: in-photo 1600ms var(--ease-out) both;
+  }
+  .in-rise {
+    animation: in-rise 900ms var(--ease-out) both;
+    animation-delay: var(--d, 0ms);
+  }
+  .in-tape {
+    animation: in-tape 600ms var(--ease-out) 550ms both;
+  }
+  .in-stamp {
+    animation: in-stamp 420ms var(--ease-out) 800ms both;
+  }
+
+  /* Reveals al entrar en pantalla. Solo con JS activo: sin JS el contenido nunca queda oculto. */
+  @media (scripting: enabled) {
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition:
+        opacity 700ms var(--ease-out),
+        transform 900ms var(--ease-out);
+      transition-delay: calc(var(--i, 0) * 80ms);
+    }
+    /* Fotos: se levantan desde abajo, como alguien que se pone de pie. */
+    [data-reveal="clip"] {
+      opacity: 1;
+      transform: none;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 1100ms var(--ease-in-out);
+      transition-delay: calc(var(--i, 0) * 80ms);
+    }
+    [data-reveal="clip"] img {
+      scale: 1.12;
+      transition: scale 1600ms var(--ease-out);
+    }
+    /* Ojo: el clip-path va solo en fotos. En texto recortaría las tildes de las mayúsculas,
+       que sobresalen de la caja de línea (interlineado 0.86). */
+    [data-reveal][data-shown] {
+      opacity: 1;
+      transform: none;
+    }
+    [data-reveal="clip"][data-shown] {
+      clip-path: inset(0);
+    }
+    [data-reveal="clip"][data-shown] img {
+      scale: 1;
+    }
+  }
+
+  /* Zoom sutil en la galería, solo con mouse. */
+  @media (hover: hover) and (pointer: fine) {
+    .zoom img {
+      transition:
+        scale 1600ms var(--ease-out),
+        transform 700ms var(--ease-out);
+    }
+    .zoom:hover img {
+      transform: scale(1.04);
+    }
+  }
+
+  /* Parallax de la foto del hero: scroll-driven, sin JS. Donde no hay soporte, queda quieta. */
+  @supports (animation-timeline: view()) {
+    .parallax img {
+      animation: parallax linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+  }
+
+  /* Menú: telón que baja al abrir (450ms) y sube rápido al cerrar (250ms). */
+  .menu {
+    clip-path: inset(0);
+    transition:
+      clip-path 450ms var(--ease-out),
+      display 450ms allow-discrete,
+      overlay 450ms allow-discrete;
+    @starting-style {
+      clip-path: inset(0 0 100% 0);
+    }
+  }
+  .menu:not([open]) {
+    clip-path: inset(0 0 100% 0);
+    transition-duration: 250ms;
+    transition-timing-function: var(--ease-in-out);
+  }
+  .menu[open] li {
+    transition:
+      opacity 400ms var(--ease-out),
+      transform 500ms var(--ease-out);
+    transition-delay: calc(120ms + var(--i, 0) * 40ms);
+    @starting-style {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+  }
+}
+
+/* Sin opacity: la foto es el LCP y tiene que contar como pintada desde el primer frame. */
+@keyframes in-photo {
+  from {
+    transform: scale(1.08);
+  }
+}
+@keyframes in-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.3em);
+  }
+}
+/* La cinta se "tira" de izquierda a derecha: mismo polígono, colapsado en el borde izquierdo. */
+@keyframes in-tape {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 20%, 0 41%, 0 62%, 0 81%, 0 100%, 0 100%, 0 79%, 0 58%, 0 37%, 0 17%);
+  }
+}
+/* El escudo cae como un sello. */
+@keyframes in-stamp {
+  from {
+    opacity: 0;
+    scale: 1.4;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@keyframes parallax {
+  to {
+    transform: translateY(12%);
+  }
+}

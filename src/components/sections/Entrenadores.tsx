@@ -8,7 +8,7 @@ export function Entrenadores() {
   return (
     <section id="entrenadores" aria-labelledby="entrenadores-title" className="py-section">
       <div className="px-gutter">
-        <SectionLabel n="06" className="text-acero">
+        <SectionLabel n="07" className="text-acero">
           Entrenadores
         </SectionLabel>
         <h2 id="entrenadores-title" data-reveal className="t-display t-h2 mt-10">

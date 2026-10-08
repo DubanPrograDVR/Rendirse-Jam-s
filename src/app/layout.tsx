@@ -11,7 +11,7 @@ const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-
 
 const titulo = "Rendirse Jamás — Club de boxeo en Molina, Maule";
 const descripcion =
-  "Club de boxeo en Molina, Región del Maule. Entrenamos lunes, miércoles y viernes en la Cámara de Comercio de Molina y competimos en veladas a nivel nacional. Reserva tu primera clase por WhatsApp.";
+  "Club de boxeo y jiu-jitsu brasileño (Akiramenai) en Molina, Región del Maule. Entrenamos lunes, miércoles, viernes y sábado en la Cámara de Comercio de Molina y competimos en veladas a nivel nacional. Reserva tu primera clase por WhatsApp.";
 
 // La imagen para redes (opengraph-image.tsx) y los íconos (icon.png, apple-icon.png) los agrega Next por convención.
 export const metadata: Metadata = {

@@ -11,7 +11,7 @@ export function Horarios() {
 
   return (
     <section id="horarios" aria-labelledby="horarios-title" className="bg-lona px-gutter py-section text-carbon">
-      <SectionLabel n="05" className="text-grafito">
+      <SectionLabel n="06" className="text-grafito">
         Horarios
       </SectionLabel>
 

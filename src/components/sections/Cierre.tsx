@@ -18,7 +18,7 @@ export function Cierre() {
       />
 
       <div className="relative">
-        <SectionLabel n="10">Últimos 30 segundos</SectionLabel>
+        <SectionLabel n="12">Últimos 30 segundos</SectionLabel>
         <h2 id="contacto-title" className="t-display mt-10 text-[clamp(3.5rem,17vw,13rem)]">
           <span data-reveal className="block">
             Nadie

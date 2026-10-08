@@ -7,7 +7,7 @@ import { stagger } from "@/components/ui/stagger";
 export function PrimeraClase() {
   return (
     <section id="primera-clase" aria-labelledby="primera-title" className="bg-lona px-gutter py-section text-carbon">
-      <SectionLabel n="09" className="text-grafito">
+      <SectionLabel n="11" className="text-grafito">
         Tu primera clase
       </SectionLabel>
       <h2 id="primera-title" data-reveal className="t-display t-h2 mt-10">

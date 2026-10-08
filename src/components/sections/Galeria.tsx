@@ -16,9 +16,9 @@ const celdas = [
 
 export function Galeria() {
   return (
-    <section id="galeria" aria-labelledby="galeria-title" className="pb-section">
+    <section id="galeria" aria-labelledby="galeria-title" className="py-section">
       <div className="px-gutter">
-        <SectionLabel n="08" className="text-acero">
+        <SectionLabel n="10" className="text-acero">
           Galería
         </SectionLabel>
         <h2 id="galeria-title" data-reveal className="t-display t-h2 mt-10">

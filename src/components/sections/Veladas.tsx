@@ -1,6 +1,6 @@
 import { Photo } from "@/components/ui/Photo";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { ciudades, club, logros, velada } from "@/content";
+import { ciudades, club, recorrido, recorridoCita, velada } from "@/content";
 import { stagger } from "@/components/ui/stagger";
 import { Arrow } from "@/components/ui/Arrow";
 
@@ -8,7 +8,7 @@ import { Arrow } from "@/components/ui/Arrow";
 export function Veladas() {
   return (
     <section id="veladas" aria-labelledby="veladas-title" className="border-t border-lona/15 px-gutter py-section">
-      <SectionLabel n="07" className="text-acero">
+      <SectionLabel n="08" className="text-acero">
         Veladas
       </SectionLabel>
       <h2 id="veladas-title" data-reveal className="t-display t-h2 mt-10">
@@ -36,10 +36,15 @@ export function Veladas() {
         />
       </article>
 
+      {/* Recorrido: del patio de tierra (2022) al título sudamericano (2026). El año en curso va en rojo. */}
       <div className="mt-20 grid gap-12 md:mt-28 md:grid-cols-12 md:gap-6">
         <div className="md:col-span-4">
-          <h3 className="t-label text-acero">Resultados recientes</h3>
-          <p className="mt-6 max-w-[30ch] text-acero">
+          <h3 className="t-label text-acero">Recorrido</h3>
+          <figure data-reveal className="mt-6">
+            <blockquote className="text-xl leading-snug font-semibold [font-stretch:87%]">“{recorridoCita.texto}”</blockquote>
+            <figcaption className="t-label mt-4 text-acero">{recorridoCita.fuente}</figcaption>
+          </figure>
+          <p className="mt-8 max-w-[30ch] text-acero">
             Próxima velada: por anunciar.{" "}
             <a href={club.instagram} target="_blank" rel="noopener" className="text-lona underline underline-offset-4">
               Síguela en Instagram <Arrow out className="text-[0.85em]" />
@@ -47,13 +52,25 @@ export function Veladas() {
           </p>
         </div>
         <ol className="md:col-span-8">
-          {logros.map((l, i) => (
-            <li key={l.evento} data-reveal style={stagger(i)} className="grid gap-1 border-t border-lona/15 py-6 md:grid-cols-8 md:gap-6">
-              <p className="t-label pt-1 text-acero tabular-nums md:col-span-2">{l.fecha}</p>
-              <div className="md:col-span-6">
-                <p className="t-display text-[clamp(1.75rem,3.5vw,2.75rem)]">{l.evento}</p>
-                <p className="mt-1 text-acero">{l.resultado}</p>
-              </div>
+          {recorrido.map((y, i) => (
+            <li key={y.anio} className="grid gap-4 border-t border-lona/15 py-6 md:grid-cols-8 md:gap-6 md:py-8">
+              <p
+                data-reveal
+                className={`t-display text-[clamp(3rem,8vw,5.5rem)] tabular-nums md:col-span-2 ${i === recorrido.length - 1 ? "text-rojo" : "text-acero"}`}
+              >
+                {y.anio}
+              </p>
+              <ul className="md:col-span-6 md:pt-2">
+                {y.hitos.map((h, j) => (
+                  <li key={h.evento} data-reveal style={stagger(j)} className="flex gap-4 py-2">
+                    <span className="t-label w-10 shrink-0 pt-2 text-acero">{h.mes}</span>
+                    <div>
+                      <p className="t-display text-[clamp(1.5rem,3vw,2.25rem)]">{h.evento}</p>
+                      {h.resultado && <p className="mt-1 text-acero">{h.resultado}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ol>

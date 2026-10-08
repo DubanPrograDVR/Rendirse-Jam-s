@@ -99,7 +99,7 @@ export function SiteHeader({ nav, reservar, instagram, facebook }: Props) {
                     className="group flex items-baseline gap-4 py-2 md:gap-8 md:py-3"
                   >
                     <span className="t-label w-6 text-acero">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="t-display text-[clamp(2.5rem,min(11vw,9svh),7rem)] transition-transform duration-200 ease-out group-hover:translate-x-2">
+                    <span className="t-display text-[clamp(2.25rem,min(10vw,7.2svh),6rem)] transition-transform duration-200 ease-out group-hover:translate-x-2">
                       {item.label}
                     </span>
                   </Link>

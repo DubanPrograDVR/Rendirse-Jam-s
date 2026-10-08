@@ -18,6 +18,12 @@ Todo el texto, datos y fotos del sitio están en **`src/content.ts`**.
 - Fotos: `src/assets/fotos/`. Para cambiar una, reemplaza el archivo o la importación en `content.ts`. Todas reciben el mismo tratamiento B/N automáticamente.
 - Una foto sin `src` se muestra como "Foto pendiente" con la descripción de la toma (`toma`), útil como lista para el fotógrafo.
 
+## Secciones con datos externos
+
+- **Prensa** (`prensa` en `content.ts`): solo notas verificadas con URL. Para sumar una, agregar un objeto con fecha, medio, titular, resumen y URL.
+- **Akiramenai** (`akiramenai` en `content.ts`): el club de jiu-jitsu brasileño dentro del club (@akiramenai_caes_de_rua_molina).
+- **Recorrido** (`recorrido` en `content.ts`): hitos por año, con su fuente comentada.
+
 ## Publicar
 
 Definir la URL real antes del build (la usan metadata, Open Graph, sitemap, robots y JSON-LD):

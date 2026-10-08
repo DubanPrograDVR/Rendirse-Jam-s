@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# investigación (material de trabajo local)
+/research_notes/
+/reports/

@@ -177,10 +177,10 @@ export const akiramenai = {
 // ── 06 Horarios ──────────────────────────────────────
 // Días confirmados por el club; falta la hora.
 export const horarios = [
-  { dia: "Lunes", hora: "[HH:MM – HH:MM]", clase: "Boxeo" },
-  { dia: "Miércoles", hora: "[HH:MM – HH:MM]", clase: "Boxeo" },
-  { dia: "Viernes", hora: "[HH:MM – HH:MM]", clase: "Boxeo" },
-  { dia: "Sábado", hora: "[HH:MM – HH:MM]", clase: "Boxeo" },
+  { dia: "Lunes", hora: "18:00 hrs", clase: "Boxeo" },
+  { dia: "Miércoles", hora: "18:00 hrs", clase: "Boxeo" },
+  { dia: "Viernes", hora: "18:00 hrs", clase: "Boxeo" },
+  { dia: "Sábado", hora: "18:00 hrs", clase: "Boxeo" },
 ];
 
 // ── 06 Entrenadores ──────────────────────────────────

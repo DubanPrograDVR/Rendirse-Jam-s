@@ -313,6 +313,15 @@ export const prensa: NotaPrensa[] = [
     url: "https://www.vlnradio.cl/noticias/deportes/2026/06/25/exitosa-velada-boxeril-se-desarrollo-en-molina/",
   },
   {
+    fecha: "20 jun. 2026",
+    medio: "El Portal Maulino",
+    tipo: "Publicación",
+    titular: "Exitosa velada de boxeo en Molina",
+    resumen: "Crónica de la velada contra Patricio Bravo, con declaraciones del entrenador del club.",
+    url: "https://www.instagram.com/el_portal_maulino/p/DZ1KR4QAM5I/",
+    extra: true,
+  },
+  {
     fecha: "18 jun. 2026",
     medio: "Aca Panoramas",
     tipo: "Publicación",
@@ -332,6 +341,15 @@ export const prensa: NotaPrensa[] = [
   },
   {
     fecha: "16 jun. 2026",
+    medio: "El Portal Maulino",
+    tipo: "Publicación",
+    titular: "Molina vivirá una gran noche de boxeo",
+    resumen: "Anuncio de la velada del 19 de junio en el Gimnasio Municipal.",
+    url: "https://www.instagram.com/el_portal_maulino/p/DZp3JvNAwoP/",
+    extra: true,
+  },
+  {
+    fecha: "16 jun. 2026",
     medio: "Kaneno Sport",
     tipo: "Video",
     titular: "El boxeo de Molina se vistió de gala",
@@ -345,6 +363,15 @@ export const prensa: NotaPrensa[] = [
     titular: "El excampeón Carlos Cruzat dictará un seminario de primer nivel en Molina",
     resumen: "El seminario que organizó el club y la historia de sus inicios en un patio de tierra.",
     url: "https://www.vlnradio.cl/noticias/deportes/2026/06/04/el-excampeon-carlos-cruzat-dictara-un-seminario-de-primer-nivel-en-molina/",
+  },
+  {
+    fecha: "4 jun. 2026",
+    medio: "El Portal Maulino",
+    tipo: "Publicación",
+    titular: "¡Carlos Cruzat llega a la comuna de Molina!",
+    resumen: "El anuncio de la visita del excampeón mundial, invitado por el club.",
+    url: "https://www.instagram.com/el_portal_maulino/p/DZLjco3AAVx/",
+    extra: true,
   },
   {
     fecha: "30 abr. 2026",

@@ -3,7 +3,7 @@ import { Photo } from "@/components/ui/Photo";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { entrenadores, esquina } from "@/content";
 
-// ¿Quiénes te acompañan? — la esquina del ring abre la sección; luego, quienes entrenan en el club.
+// ¿Quiénes te acompañan? — la esquina del ring abre la sección; luego, el equipo del club.
 export function Entrenadores() {
   return (
     <section id="entrenadores" aria-labelledby="entrenadores-title" className="py-section">
@@ -24,20 +24,22 @@ export function Entrenadores() {
         </p>
       </div>
 
-      <ul className="mt-16 grid grid-cols-2 gap-x-3 gap-y-10 px-gutter md:mt-24 md:grid-cols-4 md:gap-6">
+      <ul className="mt-16 grid grid-cols-2 gap-x-3 gap-y-10 px-gutter md:mt-24 md:grid-cols-3 md:gap-6">
         {entrenadores.map((e, i) => (
-          <li key={e.instagram} className="md:first:col-start-3">
-            <Photo foto={e.foto} frame={`E${i + 1}`} i={i} sizes="(min-width: 768px) 25vw, 50vw" className="aspect-[4/5]" />
+          <li key={e.nombre}>
+            <Photo foto={e.foto} frame={`E${i + 1}`} i={i % 3} sizes="(min-width: 768px) 33vw, 50vw" className="aspect-[4/5]" />
             <h3 className="t-display mt-5 text-[clamp(1.75rem,3vw,2.5rem)]">{e.nombre}</h3>
-            <p className="t-label mt-2 text-acero">{e.detalle}</p>
-            <a
-              href={`https://www.instagram.com/${e.instagram}/`}
-              target="_blank"
-              rel="noopener"
-              className="mt-3 inline-flex items-center gap-1.5 py-1 text-sm text-lona/90 underline underline-offset-4"
-            >
-              @{e.instagram} <Arrow out className="text-[0.85em]" />
-            </a>
+            <p className="t-label mt-2 text-acero">{e.rol}</p>
+            {e.instagram && (
+              <a
+                href={`https://www.instagram.com/${e.instagram}/`}
+                target="_blank"
+                rel="noopener"
+                className="mt-3 inline-flex items-center gap-1.5 py-1 text-sm text-lona/90 underline underline-offset-4"
+              >
+                @{e.instagram} <Arrow out className="text-[0.85em]" />
+              </a>
+            )}
           </li>
         ))}
       </ul>

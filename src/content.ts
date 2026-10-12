@@ -191,20 +191,40 @@ export const esquina: Foto = {
 };
 
 // Confirmados por el club. Juliana: resultado del Torneo Nacional Rey de Copas (IG).
-export const entrenadores = [
+// Equipo del club, según la lista que confirmó el club (oct. 2026).
+export const entrenadores: { nombre: string; rol: string; instagram?: string; foto: Foto }[] = [
   {
-    nombre: "Profe Hugo",
-    detalle: "Entrenador",
-    instagram: "profehugobox",
-    foto: { alt: "Retrato de Profe Hugo", toma: "Retrato vertical en el gimnasio, luz lateral, mirada a cámara." },
+    nombre: "Cristian Concha",
+    rol: "Entrenador federado",
+    foto: { alt: "Retrato de Cristian Concha", toma: "Retrato vertical en el gimnasio, luz lateral, mirada a cámara." },
+  },
+  {
+    nombre: "Jhonatan Filgueira",
+    rol: "Monitor",
+    foto: { alt: "Retrato de Jhonatan Filgueira", toma: "Retrato vertical con guantes, en guardia." },
+  },
+  {
+    nombre: "José Rojas",
+    rol: "Monitor y preparador físico",
+    foto: { alt: "Retrato de José Rojas", toma: "Retrato vertical en el patio o el gimnasio, con implementos de preparación física." },
+  },
+  {
+    nombre: "Hugo Martín",
+    rol: "Monitor de boxeo",
+    foto: { alt: "Retrato de Hugo Martín", toma: "Retrato vertical en el ring, luz lateral." },
   },
   {
     nombre: "Juliana Cruz",
-    detalle: "Entrenadora · Vicecampeona nacional 63 kg",
+    rol: "Monitora de boxeo",
     instagram: "juliana_fighter_coach",
     foto: { alt: "Retrato de Juliana Cruz", toma: "Retrato vertical vendando las manos de una alumna." },
   },
-] satisfies { nombre: string; detalle: string; instagram: string; foto: Foto }[];
+  {
+    nombre: "Víctor Sanzana",
+    rol: "Monitor de boxeo",
+    foto: { alt: "Retrato de Víctor Sanzana", toma: "Retrato vertical en guardia, fondo del gimnasio." },
+  },
+];
 
 // ── 07 Veladas ───────────────────────────────────────
 export const velada = {

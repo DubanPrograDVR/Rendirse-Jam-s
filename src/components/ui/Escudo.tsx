@@ -1,5 +1,5 @@
 import Image from "next/image";
-import escudo from "@/assets/escudo.png";
+import escudo from "@/assets/escudo.webp";
 
 // ponytail: versión de Instagram (647px). Reemplazar por el archivo original del club (ideal SVG).
 export function Escudo({

@@ -9,12 +9,13 @@ export const alt = "Rendirse Jamás — Club de boxeo en Molina, Maule";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// Satori (next/og) no renderiza WebP: las dos imágenes de la tarjeta para redes se quedan en JPG/PNG, en assets/og.
 const asset = (ruta: string) => readFile(join(process.cwd(), "src/assets", ruta));
 const [condensada, expandida, foto, escudo] = await Promise.all([
   asset("fonts/archivo-condensada-900.ttf"),
   asset("fonts/archivo-expandida-600.ttf"),
-  asset("og-foto.jpg"), // foto del hero ya en B/N (Satori no aplica filtros CSS)
-  asset("escudo.png"),
+  asset("og/og-foto.jpg"), // foto del hero ya en B/N (Satori no aplica filtros CSS)
+  asset("og/escudo.png"),
 ]);
 const dataUri = (buf: Buffer, tipo: string) => `data:${tipo};base64,${buf.toString("base64")}`;
 

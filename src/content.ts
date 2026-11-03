@@ -4,26 +4,33 @@
 
 import type { StaticImageData } from "next/image";
 
-import veladaBrazos from "@/assets/fotos/velada-brazos-arriba.jpg";
-import veladaEsquina from "@/assets/fotos/velada-esquina.jpg";
-import veladaGolpe from "@/assets/fotos/velada-golpe-cuerdas.jpg";
-import veladaIntercambio from "@/assets/fotos/velada-intercambio.jpg";
-import veladaArbitro from "@/assets/fotos/velada-arbitro.jpg";
-import gimnasioSparring1 from "@/assets/fotos/gimnasio-sparring-1.jpg";
-import gimnasioSparring2 from "@/assets/fotos/gimnasio-sparring-2.jpg";
-import nacionalGanador from "@/assets/fotos/nacional-ganador.jpg";
-import nacionalGanadora from "@/assets/fotos/nacional-ganadora.jpg";
-import nacionalEquipo from "@/assets/fotos/nacional-equipo.jpg";
-import equipoGimnasio from "@/assets/fotos/equipo-gimnasio.jpg";
-import sudamericano from "@/assets/fotos/sudamericano-cinturon.jpg";
-import patio2024Pera from "@/assets/fotos/patio-2024-pera.jpg";
-import patio2024Sacos from "@/assets/fotos/patio-2024-sacos.jpg";
-import patio2023Ring from "@/assets/fotos/patio-2023-ring.jpg";
-import patio2023Flexiones from "@/assets/fotos/patio-2023-flexiones.jpg";
-import patio2023Sparring from "@/assets/fotos/patio-2023-sparring.jpg";
-import patio2023Guardia from "@/assets/fotos/patio-2023-guardia.jpg";
-import akiramenaiSeminario from "@/assets/fotos/akiramenai-seminario.jpg";
-import akiramenaiGrados from "@/assets/fotos/akiramenai-grados.jpg";
+import veladaBrazos from "@/assets/fotos/velada-brazos-arriba.webp";
+import veladaEsquina from "@/assets/fotos/velada-esquina.webp";
+import veladaGolpe from "@/assets/fotos/velada-golpe-cuerdas.webp";
+import veladaIntercambio from "@/assets/fotos/velada-intercambio.webp";
+import veladaArbitro from "@/assets/fotos/velada-arbitro.webp";
+import gimnasioSparring1 from "@/assets/fotos/gimnasio-sparring-1.webp";
+import gimnasioSparring2 from "@/assets/fotos/gimnasio-sparring-2.webp";
+import nacionalGanador from "@/assets/fotos/nacional-ganador.webp";
+import nacionalGanadora from "@/assets/fotos/nacional-ganadora.webp";
+import nacionalEquipo from "@/assets/fotos/nacional-equipo.webp";
+import equipoGimnasio from "@/assets/fotos/equipo-gimnasio.webp";
+import sudamericano from "@/assets/fotos/sudamericano-cinturon.webp";
+import patio2024Pera from "@/assets/fotos/patio-2024-pera.webp";
+import patio2024Sacos from "@/assets/fotos/patio-2024-sacos.webp";
+import patio2023Ring from "@/assets/fotos/patio-2023-ring.webp";
+import patio2023Flexiones from "@/assets/fotos/patio-2023-flexiones.webp";
+import patio2023Sparring from "@/assets/fotos/patio-2023-sparring.webp";
+import patio2023Guardia from "@/assets/fotos/patio-2023-guardia.webp";
+import akiramenaiSeminario from "@/assets/fotos/akiramenai-seminario.webp";
+import akiramenaiGrados from "@/assets/fotos/akiramenai-grados.webp";
+import entrenadorVictor from "@/assets/fotos/entrenador-victor.webp";
+import entrenadorJhonatan from "@/assets/fotos/entrenador-jhonatan.webp";
+import entrenadorJose from "@/assets/fotos/entrenador-jose.webp";
+import entrenadoraJuliana from "@/assets/fotos/entrenadora-juliana.webp";
+import entrenadorHugo from "@/assets/fotos/entrenador-hugo.webp";
+import entrenadorAlexander1 from "@/assets/fotos/entrenador-alexander-1.webp";
+import entrenadorAlexander2 from "@/assets/fotos/entrenador-alexander-2.webp";
 
 export type Foto = {
   src?: StaticImageData; // vacío = placeholder que describe la toma necesaria
@@ -190,9 +197,14 @@ export const esquina: Foto = {
   pos: "55% 40%",
 };
 
+const alexander: Foto[] = [
+  { src: entrenadorAlexander1, alt: "Felipe Urra con las manos vendadas y los puños arriba, de pie en el ring bajo los focos", pos: "50% 70%" },
+  { src: entrenadorAlexander2, alt: "Felipe Urra con casco y guantes rojos, de pie en una esquina del ring", pos: "50% 70%" },
+];
+
 // Confirmados por el club. Juliana: resultado del Torneo Nacional Rey de Copas (IG).
 // Equipo del club, según la lista que confirmó el club (oct. 2026).
-export const entrenadores: { nombre: string; rol: string; instagram?: string; foto: Foto }[] = [
+export const entrenadores: { nombre: string; rol: string; instagram?: string; foto: Foto; galeria?: Foto[] }[] = [
   {
     nombre: "Cristian Concha",
     rol: "Entrenador federado",
@@ -201,28 +213,49 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   {
     nombre: "Jhonatan Filgueira",
     rol: "Monitor",
-    foto: { alt: "Retrato de Jhonatan Filgueira", toma: "Retrato vertical con guantes, en guardia." },
+    instagram: "_j.filgueira.l_",
+    foto: {
+      src: entrenadorJhonatan,
+      alt: "Jhonatan Filgueira en guardia, con las manos vendadas y una medalla al cuello, bajo un foco sobre el ring",
+      pos: "50% 35%",
+    },
   },
   {
     nombre: "José Rojas",
     rol: "Monitor y preparador físico",
-    foto: { alt: "Retrato de José Rojas", toma: "Retrato vertical en el patio o el gimnasio, con implementos de preparación física." },
+    instagram: "pp_lo_ol",
+    foto: {
+      src: entrenadorJose,
+      alt: "José Rojas con los brazos en alto, las manos vendadas y una medalla al cuello, en el centro del ring",
+    },
   },
   {
     nombre: "Hugo Martín",
     rol: "Monitor de boxeo",
-    foto: { alt: "Retrato de Hugo Martín", toma: "Retrato vertical en el ring, luz lateral." },
+    foto: { src: entrenadorHugo, alt: "Hugo Martín en guardia, con las manos vendadas, bajo un foco sobre el ring" },
   },
   {
     nombre: "Juliana Cruz",
     rol: "Monitora de boxeo",
     instagram: "juliana_fighter_coach",
-    foto: { alt: "Retrato de Juliana Cruz", toma: "Retrato vertical vendando las manos de una alumna." },
+    foto: {
+      src: entrenadoraJuliana,
+      alt: "Juliana Cruz en guardia, con las manos vendadas, sonriendo bajo un foco sobre el ring",
+      pos: "50% 35%",
+    },
   },
   {
     nombre: "Víctor Sanzana",
     rol: "Monitor de boxeo",
-    foto: { alt: "Retrato de Víctor Sanzana", toma: "Retrato vertical en guardia, fondo del gimnasio." },
+    instagram: "victor.wild",
+    foto: { src: entrenadorVictor, alt: "Víctor Sanzana en guardia, con los puños arriba, bajo un foco sobre el ring", pos: "50% 35%" },
+  },
+  {
+    nombre: "Felipe Alexxander Urra Riveros",
+    rol: "Profesor",
+    instagram: "Xxander_rc",
+    foto: alexander[0],
+    galeria: alexander,
   },
 ];
 

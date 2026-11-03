@@ -12,11 +12,13 @@ export function PhotoSlider({
   sizes,
   className = "",
   i,
+  quality,
 }: {
   fotos: Foto[];
   sizes: string;
   className?: string;
   i?: number;
+  quality?: number;
 }) {
   const track = useRef<HTMLUListElement>(null);
   const [actual, setActual] = useState(0);
@@ -52,6 +54,7 @@ export function PhotoSlider({
                 alt={foto.alt}
                 fill
                 sizes={sizes}
+                quality={quality}
                 placeholder="blur"
                 style={foto.pos ? { objectPosition: foto.pos } : undefined}
                 className="object-cover contrast-[1.15] grayscale"

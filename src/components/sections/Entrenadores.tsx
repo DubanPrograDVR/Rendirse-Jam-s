@@ -29,9 +29,16 @@ export function Entrenadores() {
         {entrenadores.map((e, i) => (
           <li key={e.nombre}>
             {e.galeria ? (
-              <PhotoSlider fotos={e.galeria} i={i % 3} sizes="(min-width: 768px) 33vw, 50vw" className="aspect-[4/5]" />
+              <PhotoSlider fotos={e.galeria} i={i % 3} quality={90} sizes="(min-width: 768px) 33vw, 50vw" className="aspect-[4/5]" />
             ) : (
-              <Photo foto={e.foto} frame={`E${i + 1}`} i={i % 3} sizes="(min-width: 768px) 33vw, 50vw" className="aspect-[4/5]" />
+              <Photo
+                foto={e.foto}
+                frame={`E${i + 1}`}
+                i={i % 3}
+                quality={90}
+                sizes="(min-width: 768px) 33vw, 50vw"
+                className="aspect-[4/5]"
+              />
             )}
             <h3 className="t-display mt-5 text-[clamp(1.75rem,3vw,2.5rem)]">{e.nombre}</h3>
             <p className="t-label mt-2 text-acero">{e.rol}</p>

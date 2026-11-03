@@ -10,6 +10,7 @@ export function Photo({
   eager = false,
   className = "",
   i,
+  quality,
 }: {
   foto: Foto;
   sizes: string;
@@ -17,6 +18,7 @@ export function Photo({
   eager?: boolean;
   className?: string;
   i?: number; // posición en un grupo, para escalonar el reveal
+  quality?: number; // debe estar en images.qualities (next.config)
 }) {
   return (
     <div
@@ -30,6 +32,7 @@ export function Photo({
           alt={foto.alt}
           fill
           sizes={sizes}
+          quality={quality}
           placeholder="blur"
           loading={eager ? "eager" : "lazy"}
           fetchPriority={eager ? "high" : undefined}

@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   images: {
     formats: ["image/avif", "image/webp"],
+    // 90 solo para los retratos del equipo: a 75 el AVIF borra el grano y deja la piel plástica.
+    qualities: [75, 90],
   },
   turbopack: {
     // Hay un package-lock.json suelto en la carpeta de usuario; fijamos la raíz al proyecto.

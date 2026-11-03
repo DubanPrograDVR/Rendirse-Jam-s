@@ -232,6 +232,7 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   {
     nombre: "Hugo Martín",
     rol: "Monitor de boxeo",
+    instagram: "profehugobox",
     foto: { src: entrenadorHugo, alt: "Hugo Martín en guardia, con las manos vendadas, bajo un foco sobre el ring" },
   },
   {

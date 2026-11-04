@@ -210,6 +210,7 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   {
     nombre: "Cristian Concha",
     rol: "Entrenador federado",
+    instagram: "cristian_ecv",
     foto: {
       src: entrenadorCristian,
       alt: "Cristian Concha con el puño en alto y la polera del club, de pie en el centro del ring bajo un foco",
@@ -218,7 +219,7 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   },
   {
     nombre: "Jhonatan Filgueira",
-    rol: "Monitor",
+    rol: "Profesor",
     instagram: "_j.filgueira.l_",
     foto: {
       src: entrenadorJhonatan,
@@ -228,7 +229,7 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   },
   {
     nombre: "José Rojas",
-    rol: "Monitor y preparador físico",
+    rol: "Profesor y preparador físico",
     instagram: "pp_lo_ol",
     foto: {
       src: entrenadorJose,
@@ -237,13 +238,13 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   },
   {
     nombre: "Hugo Martín",
-    rol: "Monitor de boxeo",
+    rol: "Profesor de boxeo",
     instagram: "profehugobox",
     foto: { src: entrenadorHugo, alt: "Hugo Martín en guardia, con las manos vendadas, bajo un foco sobre el ring" },
   },
   {
     nombre: "Juliana Cruz",
-    rol: "Monitora de boxeo",
+    rol: "Profesora de boxeo",
     instagram: "juliana_fighter_coach",
     foto: {
       src: entrenadoraJuliana,
@@ -253,13 +254,13 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   },
   {
     nombre: "Víctor Sanzana",
-    rol: "Monitor de boxeo",
+    rol: "Profesor de boxeo",
     instagram: "victor.wild",
     foto: { src: entrenadorVictor, alt: "Víctor Sanzana en guardia, con los puños arriba, bajo un foco sobre el ring", pos: "50% 35%" },
   },
   {
     nombre: "Felipe Alexxander Urra Riveros",
-    rol: "Profesor",
+    rol: "Profesor de boxeo",
     instagram: "Xxander_rc",
     foto: alexander[0],
     galeria: alexander,

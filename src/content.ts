@@ -219,7 +219,7 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   },
   {
     nombre: "Jhonatan Filgueira",
-    rol: "Profesor",
+    rol: "Profesor de boxeo",
     instagram: "_j.filgueira.l_",
     foto: {
       src: entrenadorJhonatan,

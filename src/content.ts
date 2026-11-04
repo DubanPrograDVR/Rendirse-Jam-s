@@ -9,6 +9,7 @@ import veladaEsquina from "@/assets/fotos/velada-esquina.webp";
 import veladaGolpe from "@/assets/fotos/velada-golpe-cuerdas.webp";
 import veladaIntercambio from "@/assets/fotos/velada-intercambio.webp";
 import veladaArbitro from "@/assets/fotos/velada-arbitro.webp";
+import veladaEsquinaClub from "@/assets/fotos/velada-esquina-club.webp";
 import gimnasioSparring1 from "@/assets/fotos/gimnasio-sparring-1.webp";
 import gimnasioSparring2 from "@/assets/fotos/gimnasio-sparring-2.webp";
 import nacionalGanador from "@/assets/fotos/nacional-ganador.webp";
@@ -24,6 +25,7 @@ import patio2023Sparring from "@/assets/fotos/patio-2023-sparring.webp";
 import patio2023Guardia from "@/assets/fotos/patio-2023-guardia.webp";
 import akiramenaiSeminario from "@/assets/fotos/akiramenai-seminario.webp";
 import akiramenaiGrados from "@/assets/fotos/akiramenai-grados.webp";
+import entrenadorCristian from "@/assets/fotos/entrenador-cristian.webp";
 import entrenadorVictor from "@/assets/fotos/entrenador-victor.webp";
 import entrenadorJhonatan from "@/assets/fotos/entrenador-jhonatan.webp";
 import entrenadorJose from "@/assets/fotos/entrenador-jose.webp";
@@ -208,7 +210,11 @@ export const entrenadores: { nombre: string; rol: string; instagram?: string; fo
   {
     nombre: "Cristian Concha",
     rol: "Entrenador federado",
-    foto: { alt: "Retrato de Cristian Concha", toma: "Retrato vertical en el gimnasio, luz lateral, mirada a cámara." },
+    foto: {
+      src: entrenadorCristian,
+      alt: "Cristian Concha con el puño en alto y la polera del club, de pie en el centro del ring bajo un foco",
+      pos: "50% 30%",
+    },
   },
   {
     nombre: "Jhonatan Filgueira",
@@ -269,7 +275,14 @@ export const velada = {
   fecha: "19 jun. 2026",
   lugar: "Gimnasio Municipal de Molina",
   detalle: "Velada amateur intercomunal · 6 combates · entrada liberada",
-  foto: { src: veladaArbitro, alt: "El árbitro reúne a los dos boxeadores al centro del ring antes del combate" } satisfies Foto,
+  fotos: [
+    {
+      src: veladaEsquinaClub,
+      alt: "En la esquina del ring, el equipo del club, con sus polerones de Rendirse Jamás, prepara a su boxeador de casco rojo",
+      pos: "60% 45%",
+    },
+    { src: veladaArbitro, alt: "El árbitro reúne a los dos boxeadores al centro del ring antes del combate" },
+  ] satisfies Foto[],
 };
 
 // Recorrido del club, de lo más antiguo a lo más reciente. Fuentes: Facebook e Instagram del club.

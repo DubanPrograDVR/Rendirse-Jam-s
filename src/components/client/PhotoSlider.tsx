@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { Arrow } from "@/components/ui/Arrow";
 import type { Foto } from "@/content";
 
-// Varias fotos de una misma persona en un solo marco. El scroll-snap da el swipe en el celular;
+// Varias fotos (de una persona o de una velada) en un solo marco. El scroll-snap da el swipe en el celular;
 // las flechas y el contador cubren mouse y teclado. Mismo tratamiento B/N que Photo.
 export function PhotoSlider({
   fotos,

@@ -1,4 +1,4 @@
-import { Photo } from "@/components/ui/Photo";
+import { PhotoSlider } from "@/components/client/PhotoSlider";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ciudades, club, recorrido, recorridoCita, velada } from "@/content";
 import { stagger } from "@/components/ui/stagger";
@@ -29,8 +29,8 @@ export function Veladas() {
           <p className="mt-6 text-lg">{velada.lugar}</p>
           <p className="mt-1 text-acero">{velada.detalle}</p>
         </div>
-        <Photo
-          foto={velada.foto}
+        <PhotoSlider
+          fotos={velada.fotos}
           sizes="(min-width: 768px) 40vw, 100vw"
           className="-mx-gutter aspect-[3/2] md:col-span-5 md:mx-0 md:aspect-[4/5]"
         />

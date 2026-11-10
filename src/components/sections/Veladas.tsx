@@ -1,6 +1,7 @@
 import { PhotoSlider } from "@/components/client/PhotoSlider";
+import { Photo } from "@/components/ui/Photo";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { ciudades, club, recorrido, recorridoCita, velada } from "@/content";
+import { ciudades, club, recorrido, recorridoCita, ultimasVeladas, velada } from "@/content";
 import { stagger } from "@/components/ui/stagger";
 import { Arrow } from "@/components/ui/Arrow";
 
@@ -35,6 +36,43 @@ export function Veladas() {
           className="-mx-gutter aspect-[3/2] md:col-span-5 md:mx-0 md:aspect-[4/5]"
         />
       </article>
+
+      {/* Últimas salidas fuera de casa: la más reciente manda (más ancha); el resto la acompaña. */}
+      {ultimasVeladas.length > 0 && (
+        <div className="mt-20 md:mt-28">
+          <h3 className="t-label text-acero">Últimas veladas</h3>
+          <ul className="mt-6 grid gap-12 border-t border-lona/15 pt-8 md:grid-cols-12 md:gap-6 md:pt-10">
+            {ultimasVeladas.map((v, i) => (
+              <li key={v.url} className={i === 0 ? "md:col-span-7" : "md:col-span-5"}>
+                <article aria-labelledby={`salida-${i}`} className="flex h-full flex-col">
+                  {(() => {
+                    const props = {
+                      i,
+                      sizes: i === 0 ? "(min-width: 768px) 55vw, 100vw" : "(min-width: 768px) 40vw, 100vw",
+                      className: `-mx-gutter md:mx-0 ${i === 0 ? "aspect-[4/5] md:aspect-[7/6]" : "aspect-[4/5] md:aspect-[5/6]"}`,
+                    };
+                    // Con una sola foto, sin contador ni flechas.
+                    return v.fotos.length > 1 ? <PhotoSlider fotos={v.fotos} {...props} /> : <Photo foto={v.fotos[0]} {...props} />;
+                  })()}
+                  <p className="t-label mt-6 text-acero">{v.fecha}</p>
+                  <h4 id={`salida-${i}`} data-reveal className="t-display mt-2 text-[clamp(2.5rem,6vw,4.5rem)]">
+                    {v.ciudad}
+                  </h4>
+                  <p className="mt-3 max-w-[44ch] text-acero">{v.detalle}</p>
+                  <a
+                    href={v.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="t-label mt-5 inline-flex min-h-11 items-center gap-1.5 self-start text-lona underline-offset-4 hover:underline"
+                  >
+                    Ver la velada en Instagram <Arrow out />
+                  </a>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Recorrido: del patio de tierra (2022) al título sudamericano (2026). El año en curso va en rojo. */}
       <div className="mt-20 grid gap-12 md:mt-28 md:grid-cols-12 md:gap-6">

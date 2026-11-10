@@ -10,6 +10,10 @@ import veladaGolpe from "@/assets/fotos/velada-golpe-cuerdas.webp";
 import veladaIntercambio from "@/assets/fotos/velada-intercambio.webp";
 import veladaArbitro from "@/assets/fotos/velada-arbitro.webp";
 import veladaEsquinaClub from "@/assets/fotos/velada-esquina-club.webp";
+import santiagoEquipo from "@/assets/fotos/velada-santiago-equipo.webp";
+import santiagoCinturon from "@/assets/fotos/velada-santiago-cinturon.webp";
+import santiagoRing from "@/assets/fotos/velada-santiago-ring.webp";
+import talcaEquipo from "@/assets/fotos/velada-talca-equipo.webp";
 import gimnasioSparring1 from "@/assets/fotos/gimnasio-sparring-1.webp";
 import gimnasioSparring2 from "@/assets/fotos/gimnasio-sparring-2.webp";
 import nacionalGanador from "@/assets/fotos/nacional-ganador.webp";
@@ -286,6 +290,49 @@ export const velada = {
   ] satisfies Foto[],
 };
 
+// Últimas salidas fuera de casa, la más reciente primero. Fotos y links: el club (nov. 2026).
+// La fecha es la del post en Instagram (9 nov. 2026); el día exacto de cada velada está por confirmar.
+export type Salida = { ciudad: string; fecha: string; detalle: string; url: string; fotos: Foto[] };
+
+export const ultimasVeladas: Salida[] = [
+  {
+    ciudad: "Santiago",
+    fecha: "Nov. 2026",
+    detalle: "Velada de la Liga LKR en el Club de Boxeo Nuevo Box. Juliana Cruz vuelve con el cinturón.",
+    url: "https://www.instagram.com/p/DfhqGkKFopo/",
+    fotos: [
+      {
+        src: santiagoEquipo,
+        alt: "Los boxeadores y entrenadores del club posan dentro del ring del Club Nuevo Box, con la bandera de Rendirse Jamás",
+        pos: "50% 80%",
+      },
+      {
+        src: santiagoCinturon,
+        alt: "Juliana Cruz, con short rojo, levanta el puño y lleva al hombro el cinturón de campeona de la Liga LKR",
+        pos: "50% 30%",
+      },
+      {
+        src: santiagoRing,
+        alt: "Un boxeador del club, con medalla al cuello, celebra en el ring junto a la bandera del club al final del combate",
+        pos: "55% 40%",
+      },
+    ],
+  },
+  {
+    ciudad: "Talca",
+    fecha: "Nov. 2026",
+    detalle: "Dos boxeadores del club vuelven con medalla.",
+    url: "https://www.instagram.com/p/Dfh6pZZiQRq/",
+    fotos: [
+      {
+        src: talcaEquipo,
+        alt: "El equipo del club en el ring, en guardia, con la bandera de Chile y dos boxeadores al frente mostrando sus medallas",
+        pos: "50% 62%",
+      },
+    ],
+  },
+];
+
 // Recorrido del club, de lo más antiguo a lo más reciente. Fuentes: Facebook e Instagram del club.
 // Solo hitos con participación confirmada en sus publicaciones (sin nombres de deportistas menores).
 export const recorridoCita = {
@@ -327,15 +374,18 @@ export const recorrido: { anio: string; hitos: { mes: string; evento: string; re
       { mes: "Jun.", evento: "Legado sobre el ring · Molina", resultado: "Velada intercomunal, 6 combates" },
       { mes: "Ago.", evento: "Torneo Nacional Rey de Copas", resultado: "8 peleadores · 3 oros, 3 platas y 2 bronces" },
       { mes: "Oct.", evento: "Sudamericano Open Interestilos · Curicó", resultado: "Debut en kickboxing: campeón peso medio pesado" },
+      { mes: "Nov.", evento: "Velada en Santiago · Club Nuevo Box", resultado: "Liga LKR" },
+      { mes: "", evento: "Velada en Talca" },
     ],
   },
 ];
 
-export const ciudades = ["Molina", "Iquique", "Talcahuano", "Talca", "Curicó", "Colbún", "Buin"];
+export const ciudades = ["Molina", "Santiago", "Iquique", "Talcahuano", "Talca", "Curicó", "Colbún", "Buin"];
 
 // ── 09 Prensa ────────────────────────────────────────
 // Solo apariciones verificadas (investigación oct. 2026; notas en research_notes/). Más reciente primero.
 // Los resúmenes evitan nombres de deportistas: el club debe confirmar que no son menores antes de nombrarlos.
+// La lista se pagina sola (ver PrensaLista): basta con agregar la nota nueva arriba de todo.
 export type NotaPrensa = {
   fecha: string;
   medio: string;
@@ -343,10 +393,25 @@ export type NotaPrensa = {
   titular: string;
   resumen: string;
   url: string;
-  extra?: boolean; // true = va en "Más apariciones" (desplegable)
 };
 
 export const prensa: NotaPrensa[] = [
+  {
+    fecha: "9 nov. 2026",
+    medio: "Instagram",
+    tipo: "Publicación",
+    titular: "Velada de boxeo en Talca",
+    resumen: "El club sube al ring en Talca y dos de sus boxeadores vuelven con medalla.",
+    url: "https://www.instagram.com/p/Dfh6pZZiQRq/",
+  },
+  {
+    fecha: "9 nov. 2026",
+    medio: "Instagram",
+    tipo: "Publicación",
+    titular: "Velada de boxeo en Santiago",
+    resumen: "El club compite en la Liga LKR, en el Club de Boxeo Nuevo Box.",
+    url: "https://www.instagram.com/p/DfhqGkKFopo/",
+  },
   {
     fecha: "4 ago. 2026",
     medio: "VLN Radio",
@@ -370,7 +435,6 @@ export const prensa: NotaPrensa[] = [
     titular: "Lo que fue la velada de boxeo Molina 2026",
     resumen: "Resumen en video de la velada de junio en Molina.",
     url: "https://www.instagram.com/extrovertidos.cl/reel/DaV1b5NptRi/",
-    extra: true,
   },
   {
     fecha: "25 jun. 2026",
@@ -387,7 +451,6 @@ export const prensa: NotaPrensa[] = [
     titular: "Exitosa velada de boxeo en Molina",
     resumen: "Crónica de la velada contra Patricio Bravo, con declaraciones del entrenador del club.",
     url: "https://www.instagram.com/el_portal_maulino/p/DZ1KR4QAM5I/",
-    extra: true,
   },
   {
     fecha: "18 jun. 2026",
@@ -396,7 +459,6 @@ export const prensa: NotaPrensa[] = [
     titular: "Legado sobre el ring: Molina vivirá una gran velada de boxeo",
     resumen: "Anuncio de la velada intercomunal en el Gimnasio Municipal de Molina.",
     url: "https://www.instagram.com/aca_panoramas/p/DZu6OaBDhOS/",
-    extra: true,
   },
   {
     fecha: "17 jun. 2026",
@@ -405,7 +467,6 @@ export const prensa: NotaPrensa[] = [
     titular: "¡Molina vs. Lontué: legado sobre el ring!",
     resumen: "La corporación anuncia la velada y presenta a los equipos.",
     url: "https://www.instagram.com/corpodeportesmolina/p/DZtOa-ClX3A/",
-    extra: true,
   },
   {
     fecha: "16 jun. 2026",
@@ -414,7 +475,6 @@ export const prensa: NotaPrensa[] = [
     titular: "Molina vivirá una gran noche de boxeo",
     resumen: "Anuncio de la velada del 19 de junio en el Gimnasio Municipal.",
     url: "https://www.instagram.com/el_portal_maulino/p/DZp3JvNAwoP/",
-    extra: true,
   },
   {
     fecha: "16 jun. 2026",
@@ -439,7 +499,6 @@ export const prensa: NotaPrensa[] = [
     titular: "¡Carlos Cruzat llega a la comuna de Molina!",
     resumen: "El anuncio de la visita del excampeón mundial, invitado por el club.",
     url: "https://www.instagram.com/el_portal_maulino/p/DZLjco3AAVx/",
-    extra: true,
   },
   {
     fecha: "30 abr. 2026",
@@ -472,7 +531,6 @@ export const prensa: NotaPrensa[] = [
     titular: "Boxeadores molinenses triunfan por RSC en velada realizada en el Gimnasio Abraham Milad",
     resumen: "La misma velada en Curicó, contada desde Molina.",
     url: "https://www.musicaynoticias.cl/deportes/boxeadores-molinenses-triunfan-por-rsc-en-velada-realizada-en-el-gimnasio-abraham-milad/",
-    extra: true,
   },
   {
     fecha: "22 feb. 2026",
@@ -481,7 +539,6 @@ export const prensa: NotaPrensa[] = [
     titular: "Noche de Boxeo en Curicó",
     resumen: "Video de la velada en el Gimnasio Abraham Milad.",
     url: "https://www.instagram.com/corporaciondedeportescurico/reel/DVEsEH2CHov/",
-    extra: true,
   },
   {
     fecha: "18 feb. 2026",
@@ -490,7 +547,6 @@ export const prensa: NotaPrensa[] = [
     titular: "Club de Boxeo Rendirse Jamás",
     resumen: "Registro de 28 minutos de la velada del 24 de enero en Molina.",
     url: "https://www.youtube.com/watch?v=00OZhNXteqY",
-    extra: true,
   },
   {
     fecha: "26 ene. 2026",
